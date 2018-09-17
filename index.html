@@ -8,6 +8,11 @@
     <title>Lux Bikini - Magie Noire</title>
     <link rel="stylesheet" href="styles/style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript">
+    </script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+          integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+          crossorigin="anonymous">
 </head>
 <body>
     <main>
@@ -31,7 +36,8 @@
                     <div class="information">
                         <span>+37529 328 24 44</span>
                         <span>magienoire@mail.ru</span>
-                        <span class="insta-icon">@magie_noire</span>
+                        <span class="insta-icon">
+                            <i class="fab fa-instagram"></i>@magie_noire</span>
                     </div>
                 </div>
 
@@ -90,6 +96,8 @@
                         <img src="images/slider-image.png" alt="Image">
                         <div class="bikini-information">Информация о бикини</div>
                     </div>
+
+
                 </div>
             </div>
 
@@ -181,8 +189,19 @@
             <div class="container">
                 <span class="headline headline-sales">Sales</span>
                 <div class="sales-slider">
-                <img class="sale-1" src="images/sale-1.png" alt="Sale-1">
-            </div>
+                    <ul>
+                        <li>
+                            <img class="sale-1" src="images/sale-1.png" alt="Sale-1">
+                        </li>
+                        <li>
+                            <img class="sale-2" src="images/sale-1.png" alt="Sale-2">
+                        </li>
+                        <li>
+                            <img class="sale-3" src="images/sale-1.png" alt="Sale-3">
+                        </li>
+                    </ul>
+
+                </div>
             </div>
         </section>
 
@@ -218,21 +237,7 @@
     </main>
 
 <script src="main.js"></script>
-    <script>
-        // Initialize and add the map
-        function initMap() {
-            // The location of Uluru
-            var uluru = {lat: 53.904015, lng: 27.552404};
-            // The map, centered at Uluru
-            var map = new google.maps.Map(
-                document.getElementById('map'), {zoom: 14, center: uluru});
-            // The marker, positioned at Uluru
-            var marker = new google.maps.Marker({position: uluru, map: map});
-        }
-    </script>
 
-    <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCIX6xz0V_TPeVtZdXDE9hsnRLVpWbJSU0&callback=initMap">
-    </script>
+
 </body>
 </html>

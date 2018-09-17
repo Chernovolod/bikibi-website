@@ -17,7 +17,9 @@
 * {
     box-sizing: border-box;
 }
-
+*:focus {
+    outline: none;
+}
 body {
     margin: 0;
     background: #f8f4f4;
@@ -44,7 +46,6 @@ header {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    filter: blur(0px);
 }
 .header-top {
     display: flex;
@@ -90,7 +91,7 @@ nav ul li a:hover {
     justify-content: center;
     flex-wrap: nowrap;
     padding: 25px 20px 0 10px;
-
+    line-height: 25px;
 }
 
 .information span {
@@ -99,6 +100,16 @@ nav ul li a:hover {
     color: #fff;
     margin-right: 80px;
     letter-spacing: 1px;
+}
+
+.fa-instagram {
+    margin-right: 5px;
+    transition: .2s ease-in-out;
+}
+
+.fa-instagram:hover {
+    color: darkolivegreen;
+    cursor: pointer;
 }
 
 /*----NEW-ARRIVALS
@@ -132,7 +143,7 @@ nav ul li a:hover {
 }
 
 .first-new-arrivals-container {
-    left: 20px;
+    left: 0;
     top: 750px;
 }
 
@@ -140,7 +151,7 @@ nav ul li a:hover {
     width: 345px;
     height: 595px;
     top: 550px;
-    left: 400px;
+    left: calc(50% - 150px);
 }
 
 .third-new-arrivals-container {
@@ -148,7 +159,7 @@ nav ul li a:hover {
     height: 440px;
     position: absolute;
     top: 800px;
-    right: 95px;
+    right: 10%;
     z-index: -1;
 
 }
@@ -237,6 +248,7 @@ nav ul li a:hover {
     justify-content: space-around;
     width: 100%;
     height: 1050px;
+    overflow: hidden;
 }
 
 .slider-items {
@@ -244,6 +256,7 @@ nav ul li a:hover {
     height: 460px;
     perspective: 200px;
     perspective-origin: bottom;
+    position: relative;
 }
 
 .slider-items img {
@@ -251,6 +264,7 @@ nav ul li a:hover {
 }
 
 .bikini-information {
+    height: 50px;
     background: gray;
     opacity: .7;
     font-family: 'Bebas', sans-serif;
@@ -272,6 +286,46 @@ nav ul li a:hover {
     transform: scale(1.02, 1.02);
 }
 
+.slider-items::before, .slider-items::after {
+    content: '';
+    width: 60px;
+    height: 40px;
+    opacity: 0;
+    position: absolute;
+    transition: .3s ease-in-out;
+}
+
+.slider-items::before {
+    right: 0;
+    top: 0;
+    border-right: 3px solid red;
+    border-top: 3px solid red;
+    -webkit-transform: translate(-100%, 50%);
+    -moz-transform: translate(-100%, 50%);
+    -ms-transform: translate(-100%, 50%);
+    -o-transform: translate(-100%, 50%);
+    transform: translate(-100%, 50%);
+}
+.slider-items::after {
+    left: 0;
+    bottom: 0;
+    border-left: 3px solid red;
+    border-bottom: 3px solid red;
+    -webkit-transform: translate(100%, -50%);
+    -moz-transform: translate(100%, -50%);
+    -ms-transform: translate(100%, -50%);
+    -o-transform: translate(100%, -50%);
+    transform: translate(100%, -50%);
+}
+
+.slider-items:hover::before, .slider-items:hover::after {
+    opacity: 1;
+    -webkit-transform: translate(0%, 0%);
+    -moz-transform: translate(0%, 0%);
+    -ms-transform: translate(0%, 0%);
+    -o-transform: translate(0%, 0%);
+    transform: translate(0%, 0%);
+}
 /*------LINGERIE
 ==================----*/
 
@@ -333,11 +387,21 @@ nav ul li a:hover {
 
 }
 
+.sales-slider ul li{
+    display: inline-block;
+    text-decoration: none;
+}
+
 .sales-slider {
     margin: 90px;
 }
 
-.sale-1 {
+.sales-slider ul {
+    display: flex;
+
+}
+
+.sale-1, .sale-2, .sale-3 {
     margin: 0 auto;
     width: 100%;
 }
@@ -392,4 +456,53 @@ footer {
 .footer-nav {
     display: flex;
     justify-content: center;
+
+}
+
+@media screen and (min-width: 1400px){
+    body, html {
+        height: 100%;
+    }
+     .new-arrivals, .bikini, .lingerie, .accessories, .about, .sales {
+        background-size: cover;
+        background-position: center top;
+    }
+}
+
+@media screen and  (max-width: 1330px){
+    nav ul li a {
+        font-size: 25px;
+    }
+
+    nav ul li {
+        margin-right: 60px;
+    }
+
+    .information span {
+        font-size: 15px;
+    }
+
+    .logo img{
+        max-width: 700px;
+    }
+}
+
+@media screen and  (max-width: 1125px) {
+    nav ul li {
+        margin-right: 50px;
+    }
+
+    .logo img {
+        max-width: 600px;
+    }
+}
+
+@media screen and  (max-width: 1045px) {
+    nav ul li a {
+        font-size: 18px;
+    }
+
+    .logo img{
+        max-width: 500px;
+    }
 }

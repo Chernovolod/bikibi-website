@@ -2,7 +2,7 @@ $('a[href*="#"]')
 
     .not('[href="#"]')
     .not('[href="#0"]')
-    .click(function(event) {
+    .click (function(event) {
 
         if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '')
             &&
@@ -16,7 +16,7 @@ $('a[href*="#"]')
 
                 $('html, body').animate({
                     scrollTop: target.offset().top
-                }, 1200, function() {
+                }, 800,  function() {
 
                     var $target = $(target);
                     $target.focus();
@@ -58,3 +58,30 @@ $(window).on('scroll', function () {
     }
 
 });
+
+// Функция ymaps.ready() будет вызвана, когда
+// загрузятся все компоненты API, а также когда будет готово DOM-дерево.
+ymaps.ready(init);
+function init(){
+    // Создание карты.
+    var myMap = new ymaps.Map("map", {
+        // Координаты центра карты.
+        // Порядок по умолчнию: «широта, долгота».
+        // Чтобы не определять координаты центра карты вручную,
+        // воспользуйтесь инструментом Определение координат.
+        center: [53.904015, 27.552404],
+        // Уровень масштабирования. Допустимые значения:
+        // от 0 (весь мир) до 19.
+        zoom: 16
+    });
+    var myPlacemark = new ymaps.Placemark([53.904015, 27.552404], {
+        // Хинт показывается при наведении мышкой на иконку метки.
+        hintContent: 'Магазин Lux Bikini',
+        // Балун откроется при клике по метке.
+        balloonContent: 'ТЦ Немига, 3'
+    });
+
+// После того как метка была создана, ее
+// можно добавить на карту.
+    myMap.geoObjects.add(myPlacemark);
+}
